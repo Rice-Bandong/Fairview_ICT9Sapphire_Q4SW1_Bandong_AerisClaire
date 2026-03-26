@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q4 Seatwork 1</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      
+        .top-external-curve {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background-color:#f7f1f3;
+            border-bottom: 4px solid #f8c2d9;
+            z-index: 10; 
+            background-image: radial-gradient(circle at 50% 100%, transparent 20px,#f9d3df 21px);
+            background-size: 50px 100%;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f7e0e7 0%, #e1f5fe 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+        }
+
+        .main-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px 40px 20px; 
+        }
+
+        .login-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 3px solid #f8bbd0;
+            border-radius: 30px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-header-curve {
+            background-color: #f8bbd0;
+            height: 60px;
+            width: 100%;
+            margin-bottom: 20px;
+            position: relative;
+            background-image: radial-gradient(circle at 50% 100%, transparent 15px, #f8bbd0 16px);
+            background-size: 40px 100%;
+        }
+
+        .card-content {
+            padding: 0 35px 35px 35px;
+        }
+
+        h1 { color: #f06292; font-weight: bold; }
+        h2 { color: #90caf9; font-size: 1.1rem; margin-bottom: 20px; }
+
+        .band-photo-frame {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 15px auto;
+            border: 5px solid rgb(247, 255, 132); 
+            border-radius: 50%; 
+            background-color: #f8bbd0; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .band-photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+        }
+
+        .form-control {
+            border-radius: 15px;
+            border: 1px solid #f8bbd0;
+            margin-bottom: 12px;
+        }
+
+        .btn-login {
+            background-color: #f06292;
+            color: white;
+            border-radius: 15px;
+            font-weight: bold;
+            border: none;
+            padding: 10px;
+        }
+
+        #toggleNote {
+            display: none; 
+            background-color: #fff9c4;
+            border-left: 5px solid #fff176;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: #5d4037;
+            text-align: left;
+        }
+
+        #status-msg {
+            color: #ec407a;
+            font-size: 0.85rem;
+            min-height: 20px;
+        }
+
+        .custom-footer {
+            background-color: #1a1a1a; 
+            color: white;
+            padding: 30px 0;
+            width: 100%;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 3px solid #f06292; 
+        }
+
+        .footer-link {
+            color: #90caf9;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-link:hover {
+            color: #f06292;
+            text-shadow: 0 0 5px rgba(240, 98, 146, 0.5);
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="top-external-curve"></div>
+
+    <div class="main-container">
+        <div class="login-card">
+            <div class="card-header-curve"></div>
+
+            <div class="card-content">
+                <h1>no ideA</h1>
+
+                <div class="band-photo-frame">
+                    <img src="https://i.imgur.com/YyHnj2e.jpeg" alt="no ideA band photo">
+                </div>
+
+                <h2 id="welcome-text">Backstage for Flutter-shys 🦋</h2>
+
+                <button class="btn btn-sm btn-outline-secondary mb-3" onclick="function_toggle_note()">
+                    Toggle Band Note 🎵
+                </button>
+                
+                <div id="toggleNote">
+                    <strong>Note:</strong> 
+                    <p>"no ideA" is an unofficial band my friend group and I created! We call our fans "Flutter-shys" after our first song ever made!</p>
+                    <p>P.S. Enter the correct username and password! ;3</p>
+                </div>
+
+                <input type="text" id="userInput" class="form-control" placeholder="Username">
+                <input type="password" id="passInput" class="form-control" placeholder="Password">
+
+                <div class="form-check text-start mb-2">
+                    <input class="form-check-input" type="checkbox" id="checkboxID" onclick="function_switch_logic()">
+                    <label class="form-check-label small" for="checkboxID">
+                        I'm a proud Flutter-shy
+                    </label>
+                </div>
+
+                <div id="status-msg" class="mb-3"></div>
+
+                <div class="d-grid gap-2">
+                    <button class="btn btn-login" onclick="checkAuth()">Login</button>
+                    <a href="https://github.com/Rice-Bandong/Fairview_ICT9Sapphire_Q4SW1_Bandong_AerisClaire" target="_blank" class="text-muted small mt-2">Source Code Repository</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="custom-footer">
+        <div class="container">
+            <p class="mb-1"><strong>&copy; 2026 no ideA Official Fan Portal</strong></p>
+            <p class="small opacity-75">Establishing the Flutter-shy Empire, one song at a time ;3 🦋</p>
+            
+            <div class="mt-3">
+                <a href="#" class="footer-link mx-2">Fan Terms</a>
+                <a href="#" class="footer-link mx-2">Privacy</a>
+                <a href="https://github.com/Rice-Bandong" target="_blank" class="footer-link mx-2">Developer Info</a>
+            </div>
+            
+            <hr class="bg-light opacity-25 my-3" style="max-width: 200px; margin: auto;">
+            
+            <p style="font-size: 0.75rem; letter-spacing: 1px;">DESIGNED BY AERIS BANDONG • GRADE 9 SAPPHIRE</p>
+        </div>
+    </footer>
+
+    <script>
+        // Use if-else statement for username and password verification. 
+        // Use === comparison operator and AND operator to check if condition is TRUE.
+        function checkAuth() {
+            let user = document.getElementById("userInput").value;
+            let pass = document.getElementById("passInput").value;
+
+            // Correct credentials
+            if (user === "flutter-shy" && pass === "debut2026") {
+                alert("Access Granted! Welcome to the fan zone.");
+                document.getElementById("welcome-text").innerHTML = "Welcome back, " + user + "!";
+            } else {
+                alert("Incorrect username and/or password.");
+            }
+        }
+
+        // Use Switch Code for the checkbox
+        function function_switch_logic() {
+            let variable_name = document.getElementById("checkboxID").checked; 
+            let displayMessage = document.getElementById("status-msg");
+
+            switch(variable_name) {
+                case true:
+                    // use innerHTML to display a message
+                    displayMessage.innerHTML = "Accessing fan-only content... ✨";
+                break;
+
+                case false:
+                    // use innerHTML to show nothing. use quotation;
+                    displayMessage.innerHTML = "";
+                break;
+            }
+        }
+
+        // help function to toggle note
+        function function_toggle_note() {
+            let note = document.getElementById("toggleNote");
+            if (note.style.display === "none" || note.style.display === "") {
+                note.style.display = "block";
+            } else {
+                note.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
